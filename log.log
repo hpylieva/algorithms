@@ -1,0 +1,11 @@
+INFO:root:Test Find min in Array
+INFO:root:Input: 
+INFO:root:Output: 
+INFO:root:Test Find min in Array
+INFO:root:Test Find min in Array
+INFO:root:Test Find min in Array
+INFO:root:Input: 65225795775541112775
+INFO:root:Output:  11
+INFO:root:Test Find min in Array
+INFO:root:Input: [94, 12, 63, 44, 94, 43, 93, 57, 54, 47]
+INFO:root:Output:  12
