@@ -1,7 +1,7 @@
-class Node:
-    def __init__(self, dataval=None):
-        self.dataval = dataval
-        self.nextval = None
+class ListNode:
+    def __init__(self, val=None):
+        self.val = val
+        self.next = None
 
 
 class LinkedList:
@@ -9,49 +9,52 @@ class LinkedList:
         self.headval = None
 
     def print_list(self):
-        printval = self.headval
-        while printval is not None:
-            print(printval.dataval)
-            printval = printval.nextval
+        print_node = self.headval
+        while print_node.next is not None:
+            print(print_node.val, end='->')
+            print_node = print_node.next
+        print(f'{print_node.val}\n\n')
 
-    def insert_front(self, element: Node):
+    def insert_front(self, element):
         temp = self.headval
-        self.headval = element
-        element.nextval = temp
+        node_element = ListNode(element)
+        self.headval = node_element
+        node_element.next = temp
 
-    def insert_end(self, element: Node):
+    def insert_end(self, element):
+        node_element = ListNode(element)
         if self.headval is None:
-            self.headval = element
+            self.headval = node_element
         else:
             list_member = self.headval
-            while list_member.nextval is not None:
-                list_member = list_member.nextval
-            list_member.nextval = element
+            while list_member.next is not None:
+                list_member = list_member.next
+            list_member.next = node_element
 
     def remove_by_key(self, key: str):
         prev_member = self.headval
-        while prev_member.nextval.dataval != key:
-            prev_member = prev_member.nextval
-        prev_member.nextval = prev_member.nextval.nextval
+        while prev_member.next.val != key:
+            prev_member = prev_member.next
+        prev_member.next = prev_member.next.next
 
 
 if __name__ == '__main__':
-    e1 = Node('Mon')
-    e2 = Node('Tue')
-    e3 = Node('Wed')
+    e1 = ListNode('Mon')
+    e2 = ListNode('Tue')
+    e3 = ListNode('Wed')
 
     ll = LinkedList()
     ll.headval = e1
-    ll.headval.nextval = e2
-    e2.nextval = e3
+    ll.headval.next = e2
+    e2.next = e3
     print('Initial list:')
     ll.print_list()
 
-    ll.insert_front(Node('Sun'))
-    print("Inserted Sun to list:")
+    ll.insert_front('Sun')
+    print("Inserted Sun to list:",)
     ll.print_list()
 
-    ll.insert_end(Node('Thu'))
+    ll.insert_end('Thu')
     print('Inserted Thu to the end:')
     ll.print_list()
 
